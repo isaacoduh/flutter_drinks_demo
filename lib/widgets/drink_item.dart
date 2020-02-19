@@ -52,7 +52,7 @@ class DrinkItem extends StatelessWidget{
                     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20,),
                     child: Text(
                       title,
-                      style: TextStyle(fontSize: 26, color: Colors.white,),
+                      style: TextStyle(fontSize: 16, color: Colors.white,),
                       softWrap: true,
                       overflow: TextOverflow.fade,
                     ),
