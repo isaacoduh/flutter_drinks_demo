@@ -57,7 +57,7 @@ class _CategoryDrinksScreenState extends State<CategoryDrinksScreen> {
             title: displayedDrinks[index].title,
             imageUrl: displayedDrinks[index].imageUrl,
             servetime: displayedDrinks[index].servetime,
-            removeItem: _removeDrink,
+            // removeItem: _removeDrink,
           );
         },
         itemCount: displayedDrinks.length,

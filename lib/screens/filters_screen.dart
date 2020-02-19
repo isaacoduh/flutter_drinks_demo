@@ -29,11 +29,39 @@ class _FiltersScreenState extends State<FiltersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Your Filters'),),
-      
+      appBar: AppBar(title: Text('Your Filters'), actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.save),
+          onPressed: (){
+            final selectedFilters = {
+              'glutten': _gluttenFree,
+            };
+            widget.saveFilters(selectedFilters);
+          },
+        ),
+      ],),
       drawer: MainDrawer(),
-      body: Center(
-        child: Text('Filters'),
+      body: Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.all(20),
+            child: Text(
+              'Adjust your meal selection',
+              style: Theme.of(context).textTheme.title,
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              children: <Widget>[
+                _builSwitchListTile('Glutten-Free', 'only include glutten free drinks', _gluttenFree, (newValue){
+                  setState(() {
+                    _gluttenFree = newValue;
+                  });
+                })
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
