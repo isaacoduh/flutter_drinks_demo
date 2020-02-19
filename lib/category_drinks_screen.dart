@@ -1,10 +1,13 @@
-import 'package:drinksdemo/dummy_data.dart';
 import 'package:drinksdemo/models/drink.dart';
 import 'package:drinksdemo/widgets/drink_item.dart';
 import 'package:flutter/material.dart';
 
 class CategoryDrinksScreen extends StatefulWidget {
   static const routeName = '/category-drinks';
+
+  final List<Drink> availableDrinks;
+
+  CategoryDrinksScreen(this.availableDrinks);
 
   @override
   _CategoryDrinksScreenState createState() => _CategoryDrinksScreenState();
@@ -27,7 +30,7 @@ class _CategoryDrinksScreenState extends State<CategoryDrinksScreen> {
           ModalRoute.of(context).settings.arguments as Map<String, String>;
       categoryTitle = routeArgs['title'];
       final categoryId = routeArgs['id'];
-      displayedDrinks = DUMMY_DRINKS.where((drink) {
+      displayedDrinks = widget.availableDrinks.where((drink) {
         return drink.categories.contains(categoryId);
       }).toList();
       _loadedInitData = true;
