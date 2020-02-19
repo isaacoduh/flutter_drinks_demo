@@ -1,6 +1,7 @@
 import 'package:drinksdemo/categories_screen.dart';
 import 'package:drinksdemo/category_drinks_screen.dart';
 import 'package:drinksdemo/screens/drink_detail_screen.dart';
+import 'package:drinksdemo/screens/filters_screen.dart';
 import 'package:drinksdemo/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/' : (context) => TabsScreen(),
         CategoryDrinksScreen.routeName: (context) => CategoryDrinksScreen(),
         DrinkDetailScreen.routeName: (context) => DrinkDetailScreen(),
+        FiltersScreen.routeName: (context) => FiltersScreen(),
       },
       onUnknownRoute: (settings){
         return MaterialPageRoute(builder: (context) => CategoriesScreen());
