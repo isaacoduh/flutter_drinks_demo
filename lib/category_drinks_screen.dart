@@ -23,7 +23,7 @@ class CategoryDrinksScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: (context, index){
-          return DrinkItem(title: categoryDrinks[index].title, imageUrl: categoryDrinks[index].imageUrl, servetime: categoryDrinks[index].servetime);
+          return DrinkItem(id:categoryDrinks[index].id,title: categoryDrinks[index].title, imageUrl: categoryDrinks[index].imageUrl, servetime: categoryDrinks[index].servetime);
         },
         itemCount: categoryDrinks.length,
       ),

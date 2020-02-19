@@ -1,13 +1,15 @@
+import 'package:drinksdemo/screens/drink_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../models/drink.dart';
 
 class DrinkItem extends StatelessWidget{
+  final String id;
   final String title;
   final String imageUrl;
   final ServeTime servetime;
 
-  DrinkItem({@required this.title, @required this.imageUrl, @required this.servetime});
+  DrinkItem({@required this.id,@required this.title, @required this.imageUrl, @required this.servetime});
 
   String get serveTimeText{
     switch(servetime){
@@ -25,12 +27,14 @@ class DrinkItem extends StatelessWidget{
     }
   }
 
-  void selectDrink(){}
+  void selectDrink(BuildContext context){
+    Navigator.of(context).pushNamed(DrinkDetailScreen.routeName, arguments: id);
+  }
 
   @override
   Widget build(BuildContext context){
     return InkWell(
-      onTap: selectDrink,
+      onTap: () => selectDrink(context),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 4,
