@@ -8,8 +8,9 @@ class DrinkItem extends StatelessWidget{
   final String title;
   final String imageUrl;
   final ServeTime servetime;
+  final Function removeItem;
 
-  DrinkItem({@required this.id,@required this.title, @required this.imageUrl, @required this.servetime});
+  DrinkItem({@required this.id,@required this.title, @required this.imageUrl, @required this.servetime, @required this.removeItem});
 
   String get serveTimeText{
     switch(servetime){
@@ -28,7 +29,11 @@ class DrinkItem extends StatelessWidget{
   }
 
   void selectDrink(BuildContext context){
-    Navigator.of(context).pushNamed(DrinkDetailScreen.routeName, arguments: id);
+    Navigator.of(context).pushNamed(DrinkDetailScreen.routeName, arguments: id).then((result){
+      if(result != null){
+        removeItem(result);
+      }
+    });
   }
 
   @override
